@@ -1,6 +1,6 @@
-from flask import render_template
+from flask import render_template ,redirect
 from app import app
-from models.item_list import  items,add_new_item,num_of_items,delete_item
+from models.item_list import items,add_new_item,delete_item
 from models.item import Item
 from flask import request
 
@@ -13,35 +13,41 @@ def index():
 @app.route('/items',methods=['POST'])
 def add_item():
     name=request.form["name"]
-    price=request.form["price"]
-    quantity=request.form["quantity"]
+    price=float(request.form["price"])
+    quantity=float(request.form["quantity"])
     if request.form["bought"] == "True":
         bought=True
     elif request.form["bought"]== "False":
         bought=False
 
-    # if request.form["bought"] == "True":
-    #     bought_1="bought"
-    # else:
-    #     bought_1="not bought"
+    # @app.route('/items', methods=["POST"])
+    # def delete(name):
+    #     delete_item(name)
+    #     return redirect('/items')
 
-    num_of_items = len(items)
-
-    # if request.quantity >= 3:
-    #     discount 10
+   
 
 
+
+
+
+    # cost=price+quantity
+    # total_cost(price,quantity)
+
+   
+    
 
 
     new_item=Item(name,price,quantity,False)
     add_new_item(new_item)
     return render_template("index.html", title="Shopping", items=items)
 
-    @app.route("/items/delete/<name>" ,methods=["POST"])
-    def delete(name):
-        delete_item(name)
-        return redirect('/items')
 
+    
+   
+
+
+   
 
 
 

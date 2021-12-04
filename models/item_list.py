@@ -9,8 +9,7 @@ items=[item1, item2]
 def add_new_item(item):
     items.append(item)
 
-def num_of_items(item):
-    len(item)
+
 
 def delete_item(item_name):
     item_to_delete=None
@@ -20,8 +19,10 @@ def delete_item(item_name):
             break
         items.remove(item_to_delete)
 
-
-
-    
+# def total_cost(price, quantity):
+#     total_price=items.price
+#     total_quantity=items.quantity
+#     if total_price * total_quantity == total_cost:
+#         total_cost(price*quantity)
 
 

@@ -13,20 +13,30 @@
     <input type="text" name="bought" id="bought">
     <input type="submit" value="Add">
 </form>
-<form action="/items/delete{{item.name}}">method="POST
+
+<!-- <div class="item-container"> -->
+{% for item in items %} 
+<!-- <div class="items"> -->
+<h2>{{item.name}} </h2>
+<h3>{{item.price}} </h3>
+<h4>{{item.quantity}} </h4>
+<h5>{{item.bought}}</h5>
+{{items|length}}  
+{{item.price*item.quantity}}
+
+
+
+<form action="/items/delete{{ items.name }}" method="POST">
     <input type="submit"  value="Delete">
 </form>
-
-{% for item in items %} 
-<div>
-<p>{{item.name}} <br> 
-{{item.price}} <br>
-{{item.quantity}} <br>
-{{item.bought}}
-</p>
-</div>
-{{items|length}}
+<!-- </div> -->
 
 {% endfor %}
-    
+<!-- </div>  -->
+
 {% endblock %}
+
+
+
+a="test"
+a==test
