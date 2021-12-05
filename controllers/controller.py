@@ -13,38 +13,28 @@ def index():
 @app.route('/items',methods=['POST'])
 def add_item():
     name=request.form["name"]
-    price=float(request.form["price"])
-    quantity=float(request.form["quantity"])
+    price=(request.form["price"])
+    quantity=(request.form["quantity"])
     if request.form["bought"] == "True":
         bought=True
     elif request.form["bought"]== "False":
         bought=False
-
-    # @app.route('/items', methods=["POST"])
-    # def delete(name):
-    #     delete_item(name)
-    #     return redirect('/items')
-
-   
-
-
-
-
-
-    # cost=price+quantity
-    # total_cost(price,quantity)
-
-   
-    
-
-
+        
     new_item=Item(name,price,quantity,False)
     add_new_item(new_item)
     return render_template("index.html", title="Shopping", items=items)
 
+    @app.route('/items', methods=["POST"])
+    def delete(name):
+        delete_item(name)
+        return redirect('/items')
 
+    cost=request.form["quantity"]* request.form["price"]
+    quantity=int(request.form["quantity"])
+    price= int(request.form["priec"])
+    total-cost=price*quantity
     
-   
+
 
 
    

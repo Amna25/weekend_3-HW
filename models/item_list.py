@@ -16,13 +16,6 @@ def delete_item(item_name):
     for item in items:
         if item.name==item_name:
             item_to_delete = item
-            break
-        items.remove(item_to_delete)
-
-# def total_cost(price, quantity):
-#     total_price=items.price
-#     total_quantity=items.quantity
-#     if total_price * total_quantity == total_cost:
-#         total_cost(price*quantity)
 
 
+           
